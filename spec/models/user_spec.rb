@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'posts_counter should be an integer' do
-    subject.posts_counter = '1'
+    subject.posts_counter = 'string'
     expect(subject).to_not be_valid
   end
 
