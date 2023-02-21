@@ -20,7 +20,15 @@ RSpec.describe Comment, type: :model do
     end
   end
 
-  it 'comments_counter should be 1' do
+  it 'test update_comments_counter method' do
     expect(subject.post.comments_counter).to eq(1)
+
+    Comment.create do |comment|
+      comment.post = subject.post
+      comment.author = subject.author
+      comment.text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    end
+
+    expect(subject.post.comments_counter).to eq(2)
   end
 end

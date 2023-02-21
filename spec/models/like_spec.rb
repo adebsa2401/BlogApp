@@ -20,7 +20,14 @@ RSpec.describe Like, type: :model do
     end
   end
 
-  it 'likes_counter should be 1' do
+  it 'test update_likes_counter method' do
     expect(subject.post.likes_counter).to eq(1)
+
+    Like.create do |like|
+      like.author = subject.author
+      like.post = subject.post
+    end
+
+    expect(subject.post.likes_counter).to eq(2)
   end
 end

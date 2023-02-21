@@ -60,4 +60,16 @@ RSpec.describe Post, type: :model do
     expect(subject.recent_comments.first.text).to eq('Comment 14')
     expect(subject.recent_comments.last.text).to eq('Comment 10')
   end
+
+  it 'test update_posts_counter method' do
+    expect(subject.author.posts_counter).to eq(1)
+
+    Post.create do |post|
+      post.title = 'Post 2'
+      post.text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      post.author = subject.author
+    end
+
+    expect(subject.author.posts_counter).to eq(2)
+  end
 end
