@@ -12,6 +12,7 @@ RSpec.describe PostsController, type: :request do
       get user_posts_path(user)
       expect(response).to be_successful
       expect(response.body).to include('List of user\'s posts')
+      expect(response).to render_template(:index)
     end
   end
 
@@ -34,6 +35,7 @@ RSpec.describe PostsController, type: :request do
       get user_post_path(user, post)
       expect(response).to be_successful
       expect(response.body).to include('Post\'s details')
+      expect(response).to render_template(:show)
     end
   end
 end
