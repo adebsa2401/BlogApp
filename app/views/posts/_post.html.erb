@@ -1,0 +1,17 @@
+<% truncate = false unless defined? truncate %>
+<% show_comments = true unless defined? show_comments%>
+
+<li class="card m-3">
+  <%= link_to user_post_path(@user, post), class: "text-decoration-none card-body", style: "color: #000" do %>
+    <h5 class="card-title"><%= post.title %></h5>
+    <% post_text = post.text || '...' %>
+    <p class="card-text"><%= truncate ? post_text.truncate(100) : post_text %></p>
+  <% end %>
+  <span class="ms-auto">Comments: <%= post.comments_counter %> | Likes: <%= post.likes_counter %></span>
+</li>
+
+<% if show_comments %>
+  <ul class="col p-0">
+    <%= render post.comments, locals: {truncate: truncate} %>
+  </ul>
+<% end %>

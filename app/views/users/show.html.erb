@@ -1,1 +1,18 @@
-<h1>User details</h1>
+<%= render @user %>
+
+<div class="card m-3">
+  <div class="card-body">
+    <h5 class="card-title">Bio</h5>
+    <p class="card-text"><%= @user.bio || '...' %></p>
+  </div>
+</div>
+
+<h1 class="text-center m-5">Posts</h1>
+
+<% if !@user.posts.empty? %>
+  <%= render @user.posts, locals: {truncate: true, show_comments: false} %>
+<% else %>
+  <p class="text-center m-5">There are no posts yet</p>
+<% end %>
+
+<%= link_to "See all posts", user_posts_path(@user), class: "btn btn-primary my-5" %>

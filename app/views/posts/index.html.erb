@@ -1,1 +1,11 @@
-<h1>List of user's posts</h1>
+<%= render @user %>
+
+<h1 class="text-center m-5">Posts</h1>
+
+<% if !@user.posts.empty? %>
+  <ul class="col p-0">
+    <%= render @user.posts, locals: {truncate: true} %>
+  </ul>
+<% else %>
+  <p class="text-center m-5">There are no posts yet</p>
+<% end %>
