@@ -1,1 +1,18 @@
-<h1>Post's details</h1>
+<div class="card m-3">
+  <span class="ms-auto">Comments: <%= @post.comments_counter %> | Likes: <%= @post.likes_counter %></span>
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %></h5>
+    <p class="card-text"><%= @post.text || '...' %></p>
+  </div>
+</div>
+
+<ul class="col p-0">
+  <% @post.comments.each do |comment| %>
+    <li class="card m-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= comment.author.name %></h5>
+        <p class="card-text"><%= comment.text || '...' %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
