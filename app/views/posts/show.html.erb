@@ -7,12 +7,5 @@
 </div>
 
 <ul class="col p-0">
-  <% @post.comments.each do |comment| %>
-    <li class="card m-3">
-      <div class="card-body">
-        <h5 class="card-title"><%= comment.author.name %></h5>
-        <p class="card-text"><%= comment.text || '...' %></p>
-      </div>
-    </li>
-  <% end %>
+  <%= render @post.comments %>
 </ul>

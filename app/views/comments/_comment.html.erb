@@ -1,0 +1,9 @@
+<% truncate = false unless defined? truncate %>
+
+<li class="card m-3">
+  <div class="card-body">
+    <h5 class="card-title"><%= comment.author.name %></h5>
+    <% comment_text = comment.text || '...' %>
+    <p class="card-text"><%= truncate ? comment_text.truncate(100) : comment_text %></p>
+  </div>
+</li>

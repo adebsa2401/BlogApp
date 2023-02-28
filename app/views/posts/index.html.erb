@@ -1,37 +1,10 @@
-<div class="card m-3">
-  <div class="card-body row text-decoration-none">
-    <%= image_tag @user.photo, class: "col-2 img-fluid img-thumbnail", style: "aspect-ratio: 1" if @user.photo %>
-    <div class="d-flex col-10 p-3">
-      <h2 class="my-auto"><%= @user.name %></h2>
-      <span class="ms-auto mt-auto">Number of posts: <%= @user.posts_counter %></span>
-    </div>
-  </div>
-</div>
+<%= render @user %>
 
 <h1 class="text-center m-5">Posts</h1>
 
 <% if !@user.posts.empty? %>
   <ul class="col p-0">
-    <% @user.posts.each do |post| %>
-      <li class="card m-3">
-        <%= link_to user_post_path(@user, post), class: "text-decoration-none card-body", style: "color: #000" do %>
-          <h5 class="card-title"><%= post.title %></h5>
-          <p class="card-text"><%= post.text.truncate(100) || '...' %></p>
-        <% end %>
-        <span class="ms-auto">Comments: <%= post.comments_counter %> | Likes: <%= post.likes_counter %></span>
-      </li>
-
-      <ul class="col p-0">
-        <% post.comments.each do |comment| %>
-          <li class="card m-3">
-            <div class="card-body">
-              <h5 class="card-title"><%= comment.author.name %></h5>
-              <p class="card-text"><%= comment.text.truncate(100) || '...' %></p>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
+    <%= render @user.posts, locals: {truncate: true} %>
   </ul>
 <% else %>
   <p class="text-center m-5">There are no posts yet</p>
