@@ -1,0 +1,15 @@
+<h1 class="row align-items-center justify-content-center m-5">Create a Post</h1>
+
+<div class="card h-100">
+  <%= form_with model: @post do |form| %>
+    <div class="card-header">
+      <%= form.text_field :title, class: "form-control", placeholder: "Post's title" %>
+    </div>
+    <div class="card-body">
+      <%= form.text_area :text, class: "form-control", rows: "15" %>
+    </div>
+    <div class="card-footer">
+      <%= form.submit "Create", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
