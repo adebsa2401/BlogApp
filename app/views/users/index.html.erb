@@ -1,1 +1,15 @@
-<h1>List of users</h1>
+<h1 class="text-center m-5">Users</h1>
+
+<ul class="col">
+  <% @users.each do |user| %>
+    <li class="card m-3">
+      <a href="<%= user_path(user) %>" class="card-body row text-decoration-none">
+        <%= image_tag user.photo, class: "col-2 img-fluid img-thumbnail", style: "aspect-ratio: 1" if user.photo %>
+        <div class="d-flex col-10 p-3">
+          <h2 class="my-auto"><%= user.name %></h2>
+          <span class="ms-auto mt-auto">Number of posts: <%= user.posts_counter %></span>
+        </div>
+      </a>
+    </li>
+  <% end %>
+</ul>
