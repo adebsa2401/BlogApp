@@ -1,5 +1,5 @@
-<% truncate = false unless defined? truncate %>
-<% show_comments = true unless defined? show_comments%>
+<% truncate ||= false %>
+<% show_comments ||= true%>
 
 <li class="card m-3">
   <%= link_to user_post_path(@user, post), class: "text-decoration-none card-body", style: "color: #000" do %>
@@ -7,11 +7,17 @@
     <% post_text = post.text || '...' %>
     <p class="card-text"><%= truncate ? post_text.truncate(100) : post_text %></p>
   <% end %>
-  <span class="ms-auto">Comments: <%= post.comments_counter %> | Likes: <%= post.likes_counter %></span>
+  <div class="d-flex col p-2">
+    <%= link_to "Comment", new_post_comment_path(post), class: "btn btn-primary me-2" %>
+    <%= form_with url: post_likes_path(post) do |form| %>
+      <%= form.submit "Like", class: "btn btn-secondary" %>
+    <% end %>
+    <span class="ms-auto">Comments: <%= post.comments_counter %> | Likes: <%= post.likes_counter %></span>
+  </div>
 </li>
 
 <% if show_comments %>
-  <ul class="col p-0">
+  <ul class="col">
     <%= render post.comments, locals: {truncate: truncate} %>
   </ul>
 <% end %>
