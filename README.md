@@ -59,7 +59,7 @@ After you're finished please remove all the comments and instructions!
 
 # 📖 Blog App <a name="about-project"></a>
 
-**Blog App** is a simple blog app that allows users to create posts and add them to a feed. Users can also comment on posts and like them.
+**Blog App** is a simple blog app that allows users to create posts and add them to a feed. Users can also comment like or delete a posts.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -201,6 +201,13 @@ Example:
 - GitHub: [@adebsa2401](https://github.com/adebsa2401)
 - Twitter: [@Adebsa3](https://twitter.com/Adebsa3)
 - LinkedIn: [adebsa](https://www.linkedin.com/in/adebsa)
+
+
+👤 **Kennankole**
+
+- GitHub: [@kennankole](https://github.com/kennankole)
+- Twitter: [@obwombe_kennedy](https://twitter.com/obwombe_kennedy)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kennedyomondi/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
