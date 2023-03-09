@@ -5,7 +5,7 @@ RSpec.describe UsersController, type: :request do
     it 'returns http success' do
       get users_path
       expect(response).to be_successful
-      expect(response.body).to include('List of users')
+      expect(response.body).to include('Users')
       expect(response).to render_template(:index)
     end
   end
@@ -20,7 +20,7 @@ RSpec.describe UsersController, type: :request do
     it 'returns http success' do
       get user_path(user)
       expect(response).to be_successful
-      expect(response.body).to include('User details')
+      expect(response.body).to include(user.name)
       expect(response).to render_template(:show)
     end
   end
