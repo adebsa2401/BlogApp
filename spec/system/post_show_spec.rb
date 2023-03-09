@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Post show page", type: :system do
+RSpec.describe 'Post show page', type: :system do
   before do
     @user = User.create(
       name: 'Username',
