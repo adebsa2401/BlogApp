@@ -1,7 +1,5 @@
 <%= render @user %>
-
 <h1 class="text-center m-5">Posts</h1>
-
 <% if !@user.posts.empty? %>
   <ul class="col p-0">
     <%= render @user.posts, locals: {truncate: true} %>
