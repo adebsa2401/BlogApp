@@ -3,7 +3,10 @@
 
 <li class="card m-3">
   <%= link_to user_post_path(@user, post), class: "text-decoration-none card-body", style: "color: #000" do %>
-    <h5 class="card-title"><%= post.title %></h5>
+    <div class="card-title d-flex justify-content-between align-items-center">
+      <h5><%= post.title %></h5>
+      <%= link_to "Delete", user_post_path(@user, post), data: { turbo_method: :delete }, class: "btn btn-danger" if can? :destroy, post %>
+    </div>
     <% post_text = post.text || '...' %>
     <p class="card-text">
       <%= truncate ? post_text.truncate(100) : post_text %>
