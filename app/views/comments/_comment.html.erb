@@ -1,7 +1,10 @@
 <% truncate = false unless defined? truncate %>
 <li class="card m-3">
   <div class="card-body">
-    <h5 class="card-title"><%= comment.author.name %></h5>
+    <div class="card-title d-flex justify-content-between align-items-center">
+      <h5><%= comment.author.name %></h5>
+      <%= link_to "Delete", post_comment_path(@post, comment), data: { turbo_method: :delete }, class: "btn btn-danger" if can? :destroy, comment %>
+    </div>
     <% comment_text = comment.text || '...' %>
     <p class="card-text"><%= truncate ? comment_text.truncate(100) : comment_text %></p>
   </div>
